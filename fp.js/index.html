@@ -314,34 +314,37 @@
     }
 
     @media (max-width: 575.98px) {
-      .logo{
+      .logo {
         margin-bottom: 25px;
       }
+
       .details {
-      margin-left: 40px;
-      margin-right: 40px;
-      margin-bottom: 0px;
+        margin-left: 40px;
+        margin-right: 40px;
+        margin-bottom: 0px;
       }
+
       .product-name {
         font-size: 1rem;
       }
+
       .inspiration-title {
         font-size: 2rem;
       }
-      .sale-title{
+
+      .sale-title {
         font-size: 2rem;
         padding-left: 5%;
-        
+
         padding-bottom: 32px;
         margin-bottom: 0px;
       }
-      .slider{
-        top:35%;
-      }
-      
-    }
 
-   
+      .slider {
+        top: 35%;
+      }
+
+    }
   </style>
 
   <title>Full Page RWD</title>
@@ -482,7 +485,7 @@
     let x;
     let originalX;
     let pressdown = false;
-    
+
     //desktop
     slider.addEventListener('mousedown', (e) => {
       pressdown = true;
@@ -523,37 +526,26 @@
     })
 
     //mobile
-  //    slider.addEventListener('touchstart', (e) => {
-  //    pressdown = true;
-  //    slider.style.cursor = 'grabbing';
+    slider.addEventListener('touchstart', (e) => {
+      pressed = true;
+      startx = e.targetTouches[0].clientX - innerSlider.offsetLeft;
+    });
 
-  //    originalX = e.offsetX - innerSlider.offsetLeft;
-  //    // console.log('inner',innerSlider.offsetLeft)
-  //    // console.log('e.offsetx',e.offsetX )
-  //    })
+    slider.addEventListener('touchmove', (e) => {
+      if (!pressed) return;
+      x = e.targetTouches[0].clientX;
+      innerSlider.style.left = `${x - startx}px`;
+      if (parseInt(innerSlider.style.left) > 10) {
+        innerSlider.style.left = `0px`
+      }
+        let outer = slider.getBoundingClientRect();
+        let inner = innerSlider.getBoundingClientRect();
 
-  //    window.addEventListener('touchend', () => {
-  //    slider.style.cursor = 'default'
-  //    pressdown = false;
-  //    })
+        if (inner.right < outer.right) { innerSlider.style.left=`-${inner.width-outer.width}px` }
 
-  //    slider.addEventListener('touchmove', (e) => {
-  //    if (!pressdown) return;
-  //    e.preventDefault();
-  //    x = e.offsetX;
-  //    // console.log('e.offsetx',e.offsetX )
-  //    innerSlider.style.left = `${x-originalX}px`
-  //    if (parseInt(innerSlider.style.left) > 10) {
-  //    innerSlider.style.left = `0px`
-  //    }
-  //    let outer = slider.getBoundingClientRect();
-  //    let inner = innerSlider.getBoundingClientRect();
-
-  //    if (inner.right < outer.right) { 
-  //      innerSlider.style.left=`-${inner.width-outer.width}px` } 
-  //   })
-  // </script>
-  // <script>
+    });
+  </script>
+  <script>
     const lists = document.querySelectorAll('.carousel-list')
     const rooms = document.querySelectorAll('.material-icons')
     const carousel = document.querySelectorAll('.carousel')
@@ -569,34 +561,20 @@
         }
       })
     }
-
-    // for (let i of rooms) {
-    //   i.addEventListener('click', (e) => {
-    //     console.log(rooms)
-    //     e.target.style.color = "#ed3127"
-    //     // console.log(e.target)
-    //     for (let i of rooms) {
-    //       if (i !== e.target) {
-    //         i.style.color = "#6b6b6b"
-    //         console.log(i)
-    //       }
-    //     }
-    //   })
-    // }
-
     for (let i of rooms) {
-    i.addEventListener('touchstart', (e) => {
-    e.preventDefault()
-    console.log(rooms)
-    e.target.style.color = "#ed3127"
-    // console.log(e.target)
-    for (let i of rooms) {
-    if (i !== e.target) {
-    i.style.color = "#6b6b6b"
-    console.log(i)
-    }
-    }
-    })
+      i.addEventListener('touchstart', (e) => {
+        e.preventDefault()
+
+        // console.log('滑鼠事件啟動')
+        e.target.style.color = "#ed3127"
+        // console.log(e.target)
+        for (let i of rooms) {
+          if (i !== e.target) {
+            i.style.color = "#6b6b6b"
+            // console.log(i)
+          }
+        }
+      })
     }
   </script>
   <script>
@@ -619,18 +597,12 @@
         changeSlider(e.target)
       })
     }
-
-    // for (let i of icons) {
-    //   i.addEventListener('click', (e) => {
-    //     changeSlider(e.target)
-    //   })
-    // }
-     for (let i of icons) {
-     i.addEventListener('touchstart', (e) => {
-     e.preventDefault()
-     changeSlider(e.target)
-     })
-     }
+    for (let i of icons) {
+      i.addEventListener('touchstart', (e) => {
+        e.preventDefault()
+        changeSlider(e.target)
+      })
+    }
   </script>
 
 
