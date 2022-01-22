@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.0/css/all.css">
+  <style>
+    .wrapper {
+      background-color: rgb(255, 136, 0);
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      top: 30%;
+      left: 40%;
+    }
+
+    .box {
+      background-color: rgba(165, 42, 42, 0.705);
+      z-index: -1;
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      top: 30%;
+      left: 40%;
+    }
+
+    .box:hover {
+      background-color: rgba(222, 184, 135, 0.74);
+    }
+
+    .red {
+      color: red
+    }
+  </style>
+  <title>Document</title>
+</head>
+
+<body id="body">
+
+  <br>
+
+  <h1 style="color: green">
+    GeeksForGeeks
+  </h1>
+
+  <b>
+    How to create fade-out effect
+    on page load using javascript
+  </b>
+
+
+  <p>
+    This page will fade-out
+    after loading
+  </p>
+ 
+
+ <script>
+      var opacity=0;
+      var intervalID=0;
+      window.onload=fadeout;
+      function fadeout(){
+      setInterval(hide, 200);
+      }
+      function hide(){
+      var body=document.getElementById("body");
+      opacity =
+      Number(window.getComputedStyle(body).getPropertyValue("opacity"))
+
+      if(opacity>0){
+      opacity=opacity-0.1;
+      body.style.opacity=opacity
+      }
+      else{
+      clearInterval(intervalID);
+      }
+      }
+ </script>
+</body>
+
+</html>
