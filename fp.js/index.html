@@ -1,0 +1,611 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <!-- Iconfonts-->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.0/css/all.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+  <!-- Google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.5/fullpage.css">
+  <style>
+    * {
+      font-family: 'Gothic A1', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    #firstPage {
+      background-color: #e3ebef;
+    }
+
+    .logo {
+      margin-left: auto;
+      margin-right: auto;
+      width: 120px;
+      height: 80px;
+      background-image: url('../img/logo.jpeg');
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 60px;
+    }
+
+    .promo {
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .slogan {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .main-title {
+      font-size: 4.5rem;
+      font-weight: bold;
+      letter-spacing: 0.125rem;
+    }
+
+    .details {
+      font-size: 14px;
+      margin-left: 280px;
+      margin-right: 280px;
+      line-height: 1.8;
+    }
+
+    .promo strong {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .promo strong:hover {
+      text-decoration: none;
+    }
+
+    .shoppingbtn {
+      width: 145px;
+      height: 48px;
+      border: 1px solid black;
+      border-radius: 40px;
+      line-height: 48px;
+      font-size: 14px;
+      margin: 2rem auto 4rem auto;
+      transition: .3s;
+      cursor: pointer;
+    }
+
+    .shoppingbtn:hover {
+      background-color: black;
+      color: white;
+    }
+
+    .fa-chevron-double-down {
+      font-size: 2.5rem;
+      color: black;
+    }
+
+
+    #secondPage {
+      background-image: url('../img/sectionBg.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .viewbtn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: rgb(110, 109, 109);
+      position: absolute;
+      bottom: 15%;
+      left: 10%;
+      color: white;
+      cursor: default;
+      opacity: 1;
+      transition: .3s;
+    }
+
+    .viewbtn:hover {
+      width: 200px;
+      border-radius: 40px;
+      background-color: rgb(71, 71, 71);
+    }
+
+    .viewbtn::after {
+      font-family: "Font Awesome 5 Pro";
+      content: "View Products";
+      font-weight: 400;
+      width: 0%;
+      display: none;
+      color: white;
+      transition: 1s
+    }
+
+    .viewbtn:hover::after {
+      width: auto;
+      display: block;
+      margin-left: 5px;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .shop-icon {
+      font-size: 1.2rem;
+    }
+
+    .sale-title {
+      position: absolute;
+      padding-left: 2rem;
+      font-size: 2.2rem;
+      left: 9%;
+      top: 15%;
+    }
+
+    .inspiration-title {
+      font-size: 2.2rem;
+      padding-bottom: 2rem;
+    }
+
+    .slider {
+      position: absolute;
+      left: 10%;
+      top: 25%;
+      width: 80%;
+      height: 500px;
+      overflow: hidden;
+    }
+
+    .slider-inner {
+      position: absolute;
+      left: 20px;
+      top: 0%;
+      height: 100%;
+      width: 200%;
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 15px;
+      pointer-events: none;
+    }
+
+    .slider-img {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .imgWrap {
+      width: 100%;
+    }
+
+    .imgWrap img {
+      width: 100%;
+    }
+
+    .product-name {
+      margin-top: 2rem;
+      font-size: 1.5rem;
+      white-space: nowrap;
+      width: fit-content;
+    }
+
+    .carouselWrap img {
+      width: 100%;
+    }
+
+
+    .carousel-nav {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      font-size: 1.2rem;
+      margin-top: 2rem;
+      justify-content: space-around;
+      color: #6b6b6b;
+    }
+
+    .carousel-nav li {
+      cursor: pointer;
+
+    }
+
+    .test::after {
+      content: "";
+      display: block;
+      border-top: solid .1px #6b6b6b;
+      width: 100%;
+      margin-top: 1rem;
+      display: block;
+    }
+
+    .material-icons {
+      font-size: 2rem;
+      color: #6b6b6b;
+    }
+
+    .carousel-icon-m {
+      display: none;
+    }
+
+    @media (max-width: 991.98px) {
+      .main-title {
+        font-size: 3rem;
+      }
+
+      .details {
+        margin-left: 150px;
+        margin-right: 150px;
+      }
+
+      .slider-inner {
+        width: 400%;
+      }
+
+      .carousel-nav {
+        white-space: pre-wrap;
+      }
+
+      .test::after {
+        margin-top: .5rem;
+      }
+
+      .carousel-nav {
+        font-size: .8rem;
+      }
+
+      .carousel-icon-m {
+        display: none;
+      }
+    }
+
+    @media (max-width: 767.98px) {
+      .logo {
+        margin-bottom: 30px;
+      }
+
+      .main-title {
+        font-size: 2rem;
+      }
+
+      .slogan {
+        font-size: 1rem;
+      }
+
+      .carousel-nav {
+        display: none;
+      }
+
+      .carousel-icon-m {
+        list-style-type: none;
+        display: flex;
+        justify-content: space-around;
+        margin-top: 2rem;
+      }
+
+      .carousel-icon-m li {
+        cursor: pointer;
+      }
+
+      .details {
+        margin-left: 80px;
+        margin-right: 80px;
+        margin-bottom: 0px;
+      }
+
+      .product-name {
+        font-size: 1.2rem;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      .logo {
+        margin-bottom: 25px;
+      }
+
+      .details {
+        margin-left: 40px;
+        margin-right: 40px;
+        margin-bottom: 0px;
+      }
+
+      .product-name {
+        font-size: 1rem;
+      }
+
+      .inspiration-title {
+        font-size: 2rem;
+      }
+
+      .sale-title {
+        font-size: 2rem;
+        padding-left: 5%;
+
+        padding-bottom: 32px;
+        margin-bottom: 0px;
+      }
+
+      .slider {
+        top: 35%;
+      }
+
+    }
+  </style>
+
+  <title>Full Page RWD</title>
+
+</head>
+
+<body>
+  <div id="fullpage">
+    <div class="section active" id="firstPage">
+      <div class="logo">
+      </div>
+      <div class="promo container">
+        <p class="slogan">LIVE MORE COLORFULLY</p>
+        <p class="main-title">LIVING ROOM SALE</p>
+        <p class="details">Save 15% on everything that makes a living room more inviting, from the most comfortable
+          sofas and lounge
+          chairs to silky soft rugs and good lighting, including Herman Miller® classics like the Eames Lounge Chair,
+          Noguchi Table, Nelson Bubble Lamps, and more. <strong>TERMS</strong></p>
+        <div class="shoppingbtn">
+          Shop the Sale
+        </div>
+        <a href="#productPage"><i
+            class="fal fa-chevron-double-down animate__animated animate__bounce animate__infinite animate__slow	3s"></i></a>
+      </div>
+
+    </div>
+    <div class="section" id="secondPage">
+      <div class="viewbtn">
+        <div class="shop-icon">
+          <i class="fas fa-shopping-bag"></i>
+        </div>
+      </div>
+    </div>
+    <div class="section" id="thirdPage">
+      <p class="sale-title">The best of living on sale</p>
+      <div class="slider">
+        <div class="slider-inner">
+          <div class="slider-img ">
+            <div class="imgWrap"><img src="../img/W-DWR_429_844390_grey_v2_004.png" alt=""></div>
+            <div class="product-name">
+              <span>Sofas + Sectionals</span>
+            </div>
+          </div>
+          <div class="slider-img ">
+            <div class="imgWrap"><img src="../img/slider-img2.png" alt=""></div>
+            <div class="product-name"><span>Coffee Tables</span></div>
+          </div>
+          <div class="slider-img ">
+            <div class="imgWrap"><img src="../img/slider-img3.png" alt=""></div>
+            <div class="product-name"><span>Lounge Chairs</span></div>
+          </div>
+          <div class="slider-img  ">
+            <div class="imgWrap"><img src="../img/slider-img4.png" alt=""></div>
+            <div class="product-name"><span>Rugs</span></div>
+          </div>
+          <div class="slider-img ">
+            <div class="imgWrap"><img src="../img/W-DWR_2518283_100177198_gesso_aluminum_v2_001.png" alt=""></div>
+            <div class="product-name"><span>Recliners</span></div>
+          </div>
+          <div class="slider-img ">
+            <div class="imgWrap"><img src="../img/slider-img6.png" alt=""></div>
+            <div class="product-name"><span>Side + End Tables</span></div>
+          </div>
+          <div class="slider-img ">
+            <div class="imgWrap"><img src="../img/slider-img7.png" alt=""></div>
+            <div class="product-name"><span>Storage</span></div>
+          </div>
+          <div class="slider-img ">
+            <div class="imgWrap"><img src="../img/slider-img8.png" alt=""></div>
+            <div class="product-name"><span>Lighting</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="section" id="fourthPage">
+      <div class="container">
+        <div class="inspiration-title">Room for inspiration</div>
+      </div>
+      <div class="container carouselWrap">
+        <img class="carousel " src="" alt="">
+        <ul class="carousel-nav">
+          <li class="carousel-list" title="../img/carousel1.png">Maximize storage</li>
+          <li class="carousel-list" title="../img/carousel2.png">The creative office</li>
+          <li class="carousel-list" title="../img/carousel3.png">Colorful dining</li>
+          <li class="carousel-list" title="../img/carousel4.png">Light and airy living</li>
+          <li class="carousel-list" title="../img/carousel5.png">Sitting on cloud nine</li>
+        </ul>
+        <ul class="carousel-icon-m">
+          <li>
+            <span class="material-icons" title="../img/carousel1.png">
+              bed
+            </span>
+          </li>
+          <li>
+            <span class="material-icons" title="../img/carousel2.png">
+              computer
+            </span>
+          </li>
+          <li>
+            <span class="material-icons" title="../img/carousel3.png">
+              table_bar
+            </span>
+          </li>
+          <li>
+            <span class="material-icons" title="../img/carousel4.png">
+              weekend
+            </span>
+          </li>
+          <li>
+            <span class="material-icons" title="../img/carousel5.png">
+              bedroom_baby
+            </span>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.5/fullpage.min.js"></script>
+  <script>
+    new fullpage('#fullpage', {
+      autoScrolling: true,
+      scrollingSpeed: 800,
+      navigation: true,
+      showActiveTooltip: true,
+      slidesNavigation: true,
+      controlArrows: false,
+      anchors: ['homePage', 'productPage', 'salesPage', 'inspirationPage'],
+      loopBottom: true,
+    });
+  </script>
+  <script>
+    let slider = document.querySelector('.slider')
+    let innerSlider = document.querySelector('.slider-inner')
+    let x;
+    let originalX;
+    let pressdown = false;
+
+    //desktop
+    slider.addEventListener('mousedown', (e) => {
+      pressdown = true;
+      slider.style.cursor = 'grabbing';
+
+      originalX = e.offsetX - innerSlider.offsetLeft;
+      // console.log('inner',innerSlider.offsetLeft)
+      // console.log('e.offsetx',e.offsetX )
+    })
+
+    slider.addEventListener('mouseenter', () => {
+      slider.style.cursor = 'grab'
+
+    })
+
+    window.addEventListener('mouseup', () => {
+      slider.style.cursor = 'default'
+      pressdown = false;
+    })
+
+    slider.addEventListener('mousemove', (e) => {
+      if (!pressdown) return;
+      e.preventDefault();
+      x = e.offsetX;
+      //  console.log('e.offsetx',e.offsetX )
+      innerSlider.style.left = `${x-originalX}px`
+      if (parseInt(innerSlider.style.left) > 10) {
+        innerSlider.style.left = `0px`
+      }
+      let outer = slider.getBoundingClientRect();
+      let inner = innerSlider.getBoundingClientRect();
+
+      if (inner.right < outer.right) {
+        innerSlider.style.left = `-${inner.width-outer.width}px`
+      }
+      // console.log('outer', outer.right)
+      // console.log('inner', inner.right)
+    })
+
+    //mobile
+    slider.addEventListener('touchstart', (e) => {
+      pressed = true;
+      startx = e.targetTouches[0].clientX - innerSlider.offsetLeft;
+    });
+
+    slider.addEventListener('touchmove', (e) => {
+      if (!pressed) return;
+      x = e.targetTouches[0].clientX;
+      innerSlider.style.left = `${x - startx}px`;
+      if (parseInt(innerSlider.style.left) > 10) {
+        innerSlider.style.left = `0px`
+      }
+        let outer = slider.getBoundingClientRect();
+        let inner = innerSlider.getBoundingClientRect();
+
+        if (inner.right < outer.right) { innerSlider.style.left=`-${inner.width-outer.width}px` }
+
+    });
+  </script>
+  <script>
+    const lists = document.querySelectorAll('.carousel-list')
+    const rooms = document.querySelectorAll('.material-icons')
+    const carousel = document.querySelectorAll('.carousel')
+    lists[0].classList.add('test')
+    for (let i of lists) {
+      i.addEventListener('click', (e) => {
+        e.target.classList.add('test')
+        for (let i of lists) {
+          if (i !== e.target) {
+            i.classList.remove('test')
+            console.log(i)
+          }
+        }
+      })
+    }
+    for (let i of rooms) {
+      i.addEventListener('touchstart', (e) => {
+        e.preventDefault()
+
+        // console.log('滑鼠事件啟動')
+        e.target.style.color = "#ed3127"
+        // console.log(e.target)
+        for (let i of rooms) {
+          if (i !== e.target) {
+            i.style.color = "#6b6b6b"
+            // console.log(i)
+          }
+        }
+      })
+    }
+  </script>
+  <script>
+    function changeSlider(pic) {
+      let source = pic.getAttribute('title');
+      let showslide = document.querySelector('.carousel')
+      showslide.setAttribute('src', source)
+    }
+    changeSlider(document.querySelector('.carousel-list'))
+
+
+    let navList = document.querySelector('.carousel-nav')
+    let links = navList.getElementsByTagName('li')
+
+    let navicons = document.querySelector('.carousel-icon-m')
+    let icons = navicons.querySelectorAll('.material-icons')
+
+    for (let i of links) {
+      i.addEventListener('click', (e) => {
+        changeSlider(e.target)
+      })
+    }
+    for (let i of icons) {
+      i.addEventListener('touchstart', (e) => {
+        e.preventDefault()
+        changeSlider(e.target)
+      })
+    }
+  </script>
+
+
+</body>
+
+</html>
