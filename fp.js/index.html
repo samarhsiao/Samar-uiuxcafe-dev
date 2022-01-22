@@ -384,7 +384,6 @@
             <div class="product-name">
               <span>Sofas + Sectionals</span>
             </div>
-
           </div>
           <div class="slider-img ">
             <div class="imgWrap"><img src="../img/slider-img2.png" alt=""></div>
@@ -483,7 +482,8 @@
     let x;
     let originalX;
     let pressdown = false;
-
+    
+    //desktop
     slider.addEventListener('mousedown', (e) => {
       pressdown = true;
       slider.style.cursor = 'grabbing';
@@ -520,6 +520,39 @@
       }
       // console.log('outer', outer.right)
       // console.log('inner', inner.right)
+    })
+
+    //mobile
+     slider.addEventListener('touchstart', (e) => {
+     pressdown = true;
+     slider.style.cursor = 'grabbing';
+
+     originalX = e.offsetX - innerSlider.offsetLeft;
+     // console.log('inner',innerSlider.offsetLeft)
+     // console.log('e.offsetx',e.offsetX )
+     })
+
+     
+
+     window.addEventListener('touchend', () => {
+     slider.style.cursor = 'default'
+     pressdown = false;
+     })
+
+     slider.addEventListener('touchmove', (e) => {
+     if (!pressdown) return;
+     e.preventDefault();
+     x = e.offsetX;
+     // console.log('e.offsetx',e.offsetX )
+     innerSlider.style.left = `${x-originalX}px`
+     if (parseInt(innerSlider.style.left) > 10) {
+     innerSlider.style.left = `0px`
+     }
+     let outer = slider.getBoundingClientRect();
+     let inner = innerSlider.getBoundingClientRect();
+
+     if (inner.right < outer.right) { 
+       innerSlider.style.left=`-${inner.width-outer.width}px` } 
     })
   </script>
   <script>
