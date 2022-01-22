@@ -573,7 +573,6 @@
     }
 
     for (let i of rooms) {
-
       i.addEventListener('click', (e) => {
         console.log(rooms)
         e.target.style.color = "#ed3127"
@@ -582,12 +581,23 @@
           if (i !== e.target) {
             i.style.color = "#6b6b6b"
             console.log(i)
-
           }
         }
-
-
       })
+    }
+
+    for (let i of rooms) {
+    i.addEventListener('touchstart', (e) => {
+    console.log(rooms)
+    e.target.style.color = "#ed3127"
+    // console.log(e.target)
+    for (let i of rooms) {
+    if (i !== e.target) {
+    i.style.color = "#6b6b6b"
+    console.log(i)
+    }
+    }
+    })
     }
   </script>
   <script>
@@ -616,6 +626,11 @@
         changeSlider(e.target)
       })
     }
+     for (let i of icons) {
+     i.addEventListener('touchstart', (e) => {
+     changeSlider(e.target)
+     })
+     }
   </script>
 
 
