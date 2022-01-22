@@ -523,39 +523,37 @@
     })
 
     //mobile
-     slider.addEventListener('touchstart', (e) => {
-     pressdown = true;
-     slider.style.cursor = 'grabbing';
+  //    slider.addEventListener('touchstart', (e) => {
+  //    pressdown = true;
+  //    slider.style.cursor = 'grabbing';
 
-     originalX = e.offsetX - innerSlider.offsetLeft;
-     // console.log('inner',innerSlider.offsetLeft)
-     // console.log('e.offsetx',e.offsetX )
-     })
+  //    originalX = e.offsetX - innerSlider.offsetLeft;
+  //    // console.log('inner',innerSlider.offsetLeft)
+  //    // console.log('e.offsetx',e.offsetX )
+  //    })
 
-     
+  //    window.addEventListener('touchend', () => {
+  //    slider.style.cursor = 'default'
+  //    pressdown = false;
+  //    })
 
-     window.addEventListener('touchend', () => {
-     slider.style.cursor = 'default'
-     pressdown = false;
-     })
+  //    slider.addEventListener('touchmove', (e) => {
+  //    if (!pressdown) return;
+  //    e.preventDefault();
+  //    x = e.offsetX;
+  //    // console.log('e.offsetx',e.offsetX )
+  //    innerSlider.style.left = `${x-originalX}px`
+  //    if (parseInt(innerSlider.style.left) > 10) {
+  //    innerSlider.style.left = `0px`
+  //    }
+  //    let outer = slider.getBoundingClientRect();
+  //    let inner = innerSlider.getBoundingClientRect();
 
-     slider.addEventListener('touchmove', (e) => {
-     if (!pressdown) return;
-     e.preventDefault();
-     x = e.offsetX;
-     // console.log('e.offsetx',e.offsetX )
-     innerSlider.style.left = `${x-originalX}px`
-     if (parseInt(innerSlider.style.left) > 10) {
-     innerSlider.style.left = `0px`
-     }
-     let outer = slider.getBoundingClientRect();
-     let inner = innerSlider.getBoundingClientRect();
-
-     if (inner.right < outer.right) { 
-       innerSlider.style.left=`-${inner.width-outer.width}px` } 
-    })
-  </script>
-  <script>
+  //    if (inner.right < outer.right) { 
+  //      innerSlider.style.left=`-${inner.width-outer.width}px` } 
+  //   })
+  // </script>
+  // <script>
     const lists = document.querySelectorAll('.carousel-list')
     const rooms = document.querySelectorAll('.material-icons')
     const carousel = document.querySelectorAll('.carousel')
@@ -586,19 +584,19 @@
       })
     }
 
-    for (let i of rooms) {
-    i.addEventListener('touchstart', (e) => {
-    console.log(rooms)
-    e.target.style.color = "#ed3127"
-    // console.log(e.target)
-    for (let i of rooms) {
-    if (i !== e.target) {
-    i.style.color = "#6b6b6b"
-    console.log(i)
-    }
-    }
-    })
-    }
+    // for (let i of rooms) {
+    // i.addEventListener('touchstart', (e) => {
+    // console.log(rooms)
+    // e.target.style.color = "#ed3127"
+    // // console.log(e.target)
+    // for (let i of rooms) {
+    // if (i !== e.target) {
+    // i.style.color = "#6b6b6b"
+    // console.log(i)
+    // }
+    // }
+    // })
+    // }
   </script>
   <script>
     function changeSlider(pic) {
@@ -626,11 +624,11 @@
         changeSlider(e.target)
       })
     }
-     for (let i of icons) {
-     i.addEventListener('touchstart', (e) => {
-     changeSlider(e.target)
-     })
-     }
+    //  for (let i of icons) {
+    //  i.addEventListener('touchstart', (e) => {
+    //  changeSlider(e.target)
+    //  })
+    //  }
   </script>
 
 
